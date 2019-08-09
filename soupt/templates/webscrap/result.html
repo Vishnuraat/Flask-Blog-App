@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Enter URL here{% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+  <form method="scarped">
+    <label for="pagetitle">URL_TITLE</label>
+    
+    <p>{{ pagetitle }}</p>
+  </form>
+{% endblock %}   

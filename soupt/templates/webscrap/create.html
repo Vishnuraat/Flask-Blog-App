@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Enter URL here{% endblock %}</h1>
+{% endblock %}
+
+
+{% block content %}
+  <form method="post">
+    <label form="urltitle">URL</label>
+    <input name="urltitle" id="urltitle" value="{{ request.form['urltitle'] }}" required>
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}   
+
+ 
+
+
+
+
+
+ 

@@ -1,0 +1,17 @@
+s{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Edit "{{ scrape_data['urltitle'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label form="urltitle">URL</label>
+    <input name="urltitle" id="urltitle" value="{{ request.form['urltitle'] }}" required>
+    <input type="submit" value="Submit">
+  </form>
+   <hr>
+  <form action="{{ scrape_data.delete_url }}" method="post">
+    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+  </form>
+{% endblock %}  

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}URL and titles{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('webscrap.scrape_title') }}">New</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for scrape in scrapes %}
+    <article class="scarpe_data">
+      <header>
+        <div>
+          <h1>
+            <a href="{{ scrape.urltitle}}">
+              {{scrape.pagetitle}}
+            </a>
+          </h1>
+          <h5>by {{ scrape.author.username}} on {{scrape.created.strftime('%Y-%m-%d')}}</h5>
+          {% if g.user['id'] == scrape['author_id'] %}
+           
+            <a class="action" href="{{ scrape.update_url }}">Edit</a>
+          {% endif %}
+          <br>
+        </div>
+
+  {% endfor %}
+{% endblock %}
